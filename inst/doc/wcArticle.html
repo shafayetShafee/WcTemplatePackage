@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<meta name="author" content="Author: Shafayet Shafee" />
+
+
+<title>Weather Information Preferences in the US</title>
+
+<script>$(document).ready(function(){
+    if (typeof $('[data-toggle="tooltip"]').tooltip === 'function') {
+        $('[data-toggle="tooltip"]').tooltip();
+    }
+    if ($('[data-toggle="popover"]').popover === 'function') {
+        $('[data-toggle="popover"]').popover();
+    }
+});
+</script>
+<style type="text/css">
+.lightable-minimal {
+border-collapse: separate;
+border-spacing: 16px 1px;
+width: 100%;
+margin-bottom: 10px;
+}
+.lightable-minimal td {
+margin-left: 5px;
+margin-right: 5px;
+}
+.lightable-minimal th {
+margin-left: 5px;
+margin-right: 5px;
+}
+.lightable-minimal thead tr:last-child th {
+border-bottom: 2px solid #00000050;
+empty-cells: hide;
+}
+.lightable-minimal tbody tr:first-child td {
+padding-top: 0.5em;
+}
+.lightable-minimal.lightable-hover tbody tr:hover {
+background-color: #f5f5f5;
+}
+.lightable-minimal.lightable-striped tbody tr:nth-child(even) {
+background-color: #f5f5f5;
+}
+.lightable-classic {
+border-top: 0.16em solid #111111;
+border-bottom: 0.16em solid #111111;
+width: 100%;
+margin-bottom: 10px;
+margin: 10px 5px;
+}
+.lightable-classic tfoot tr td {
+border: 0;
+}
+.lightable-classic tfoot tr:first-child td {
+border-top: 0.14em solid #111111;
+}
+.lightable-classic caption {
+color: #222222;
+}
+.lightable-classic td {
+padding-left: 5px;
+padding-right: 5px;
+color: #222222;
+}
+.lightable-classic th {
+padding-left: 5px;
+padding-right: 5px;
+font-weight: normal;
+color: #222222;
+}
+.lightable-classic thead tr:last-child th {
+border-bottom: 0.10em solid #111111;
+}
+.lightable-classic.lightable-hover tbody tr:hover {
+background-color: #F9EEC1;
+}
+.lightable-classic.lightable-striped tbody tr:nth-child(even) {
+background-color: #f5f5f5;
+}
+.lightable-classic-2 {
+border-top: 3px double #111111;
+border-bottom: 3px double #111111;
+width: 100%;
+margin-bottom: 10px;
+}
+.lightable-classic-2 tfoot tr td {
+border: 0;
+}
+.lightable-classic-2 tfoot tr:first-child td {
+border-top: 3px double #111111;
+}
+.lightable-classic-2 caption {
+color: #222222;
+}
+.lightable-classic-2 td {
+padding-left: 5px;
+padding-right: 5px;
+color: #222222;
+}
+.lightable-classic-2 th {
+padding-left: 5px;
+padding-right: 5px;
+font-weight: normal;
+color: #222222;
+}
+.lightable-classic-2 tbody tr:last-child td {
+border-bottom: 3px double #111111;
+}
+.lightable-classic-2 thead tr:last-child th {
+border-bottom: 1px solid #111111;
+}
+.lightable-classic-2.lightable-hover tbody tr:hover {
+background-color: #F9EEC1;
+}
+.lightable-classic-2.lightable-striped tbody tr:nth-child(even) {
+background-color: #f5f5f5;
+}
+.lightable-material {
+min-width: 100%;
+white-space: nowrap;
+table-layout: fixed;
+font-family: Roboto, sans-serif;
+border: 1px solid #EEE;
+border-collapse: collapse;
+margin-bottom: 10px;
+}
+.lightable-material tfoot tr td {
+border: 0;
+}
+.lightable-material tfoot tr:first-child td {
+border-top: 1px solid #EEE;
+}
+.lightable-material th {
+height: 56px;
+padding-left: 16px;
+padding-right: 16px;
+}
+.lightable-material td {
+height: 52px;
+padding-left: 16px;
+padding-right: 16px;
+border-top: 1px solid #eeeeee;
+}
+.lightable-material.lightable-hover tbody tr:hover {
+background-color: #f5f5f5;
+}
+.lightable-material.lightable-striped tbody tr:nth-child(even) {
+background-color: #f5f5f5;
+}
+.lightable-material.lightable-striped tbody td {
+border: 0;
+}
+.lightable-material.lightable-striped thead tr:last-child th {
+border-bottom: 1px solid #ddd;
+}
+.lightable-material-dark {
+min-width: 100%;
+white-space: nowrap;
+table-layout: fixed;
+font-family: Roboto, sans-serif;
+border: 1px solid #FFFFFF12;
+border-collapse: collapse;
+margin-bottom: 10px;
+background-color: #363640;
+}
+.lightable-material-dark tfoot tr td {
+border: 0;
+}
+.lightable-material-dark tfoot tr:first-child td {
+border-top: 1px solid #FFFFFF12;
+}
+.lightable-material-dark th {
+height: 56px;
+padding-left: 16px;
+padding-right: 16px;
+color: #FFFFFF60;
+}
+.lightable-material-dark td {
+height: 52px;
+padding-left: 16px;
+padding-right: 16px;
+color: #FFFFFF;
+border-top: 1px solid #FFFFFF12;
+}
+.lightable-material-dark.lightable-hover tbody tr:hover {
+background-color: #FFFFFF12;
+}
+.lightable-material-dark.lightable-striped tbody tr:nth-child(even) {
+background-color: #FFFFFF12;
+}
+.lightable-material-dark.lightable-striped tbody td {
+border: 0;
+}
+.lightable-material-dark.lightable-striped thead tr:last-child th {
+border-bottom: 1px solid #FFFFFF12;
+}
+.lightable-paper {
+width: 100%;
+margin-bottom: 10px;
+color: #444;
+}
+.lightable-paper tfoot tr td {
+border: 0;
+}
+.lightable-paper tfoot tr:first-child td {
+border-top: 1px solid #00000020;
+}
+.lightable-paper thead tr:last-child th {
+color: #666;
+vertical-align: bottom;
+border-bottom: 1px solid #00000020;
+line-height: 1.15em;
+padding: 10px 5px;
+}
+.lightable-paper td {
+vertical-align: middle;
+border-bottom: 1px solid #00000010;
+line-height: 1.15em;
+padding: 7px 5px;
+}
+.lightable-paper.lightable-hover tbody tr:hover {
+background-color: #F9EEC1;
+}
+.lightable-paper.lightable-striped tbody tr:nth-child(even) {
+background-color: #00000008;
+}
+.lightable-paper.lightable-striped tbody td {
+border: 0;
+}
+</style>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+
+
+
+
+
+<style type="text/css">body {
+background-color: #fff;
+margin: 1em auto;
+max-width: 700px;
+overflow: visible;
+padding-left: 2em;
+padding-right: 2em;
+font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-size: 14px;
+line-height: 1.35;
+}
+#TOC {
+clear: both;
+margin: 0 0 10px 10px;
+padding: 4px;
+width: 400px;
+border: 1px solid #CCCCCC;
+border-radius: 5px;
+background-color: #f6f6f6;
+font-size: 13px;
+line-height: 1.3;
+}
+#TOC .toctitle {
+font-weight: bold;
+font-size: 15px;
+margin-left: 5px;
+}
+#TOC ul {
+padding-left: 40px;
+margin-left: -1.5em;
+margin-top: 5px;
+margin-bottom: 5px;
+}
+#TOC ul ul {
+margin-left: -2em;
+}
+#TOC li {
+line-height: 16px;
+}
+table {
+margin: 1em auto;
+border-width: 1px;
+border-color: #DDDDDD;
+border-style: outset;
+border-collapse: collapse;
+}
+table th {
+border-width: 2px;
+padding: 5px;
+border-style: inset;
+}
+table td {
+border-width: 1px;
+border-style: inset;
+line-height: 18px;
+padding: 5px 5px;
+}
+table, table th, table td {
+border-left-style: none;
+border-right-style: none;
+}
+table thead, table tr.even {
+background-color: #f7f7f7;
+}
+p {
+margin: 0.5em 0;
+}
+blockquote {
+background-color: #f6f6f6;
+padding: 0.25em 0.75em;
+}
+hr {
+border-style: solid;
+border: none;
+border-top: 1px solid #777;
+margin: 28px 0;
+}
+dl {
+margin-left: 0;
+}
+dl dd {
+margin-bottom: 13px;
+margin-left: 13px;
+}
+dl dt {
+font-weight: bold;
+}
+ul {
+margin-top: 0;
+}
+ul li {
+list-style: circle outside;
+}
+ul ul {
+margin-bottom: 0;
+}
+pre, code {
+background-color: #f7f7f7;
+border-radius: 3px;
+color: #333;
+white-space: pre-wrap; 
+}
+pre {
+border-radius: 3px;
+margin: 5px 0px 10px 0px;
+padding: 10px;
+}
+pre:not([class]) {
+background-color: #f7f7f7;
+}
+code {
+font-family: Consolas, Monaco, 'Courier New', monospace;
+font-size: 85%;
+}
+p > code, li > code {
+padding: 2px 0px;
+}
+div.figure {
+text-align: center;
+}
+img {
+background-color: #FFFFFF;
+padding: 2px;
+border: 1px solid #DDDDDD;
+border-radius: 3px;
+border: 1px solid #CCCCCC;
+margin: 0 5px;
+}
+h1 {
+margin-top: 0;
+font-size: 35px;
+line-height: 40px;
+}
+h2 {
+border-bottom: 4px solid #f7f7f7;
+padding-top: 10px;
+padding-bottom: 2px;
+font-size: 145%;
+}
+h3 {
+border-bottom: 2px solid #f7f7f7;
+padding-top: 10px;
+font-size: 120%;
+}
+h4 {
+border-bottom: 1px solid #f7f7f7;
+margin-left: 8px;
+font-size: 105%;
+}
+h5, h6 {
+border-bottom: 1px solid #ccc;
+font-size: 105%;
+}
+a {
+color: #0033dd;
+text-decoration: none;
+}
+a:hover {
+color: #6666ff; }
+a:visited {
+color: #800080; }
+a:visited:hover {
+color: #BB00BB; }
+a[href^="http:"] {
+text-decoration: underline; }
+a[href^="https:"] {
+text-decoration: underline; }
+
+code > span.kw { color: #555; font-weight: bold; } 
+code > span.dt { color: #902000; } 
+code > span.dv { color: #40a070; } 
+code > span.bn { color: #d14; } 
+code > span.fl { color: #d14; } 
+code > span.ch { color: #d14; } 
+code > span.st { color: #d14; } 
+code > span.co { color: #888888; font-style: italic; } 
+code > span.ot { color: #007020; } 
+code > span.al { color: #ff0000; font-weight: bold; } 
+code > span.fu { color: #900; font-weight: bold; } 
+code > span.er { color: #a61717; background-color: #e3d2d2; } 
+</style>
+
+
+
+
+</head>
+
+<body>
+
+
+
+
+<h1 class="title toc-ignore">Weather Information Preferences in the US</h1>
+<h3 class="subtitle">Summary Report For the Mountain Region</h3>
+<h4 class="author">Author: Shafayet Shafee</h4>
+<h4 class="date">Sunday January 03, 2021</h4>
+
+
+
+<div id="background" class="section level2">
+<h2>Background</h2>
+<p>In April 2015, Walt Hickey at <a href="http://fivethirtyeight.com/">538.com</a> published an article entitled <a href="https://fivethirtyeight.com/features/weather-forecast-news-app-habits/">“Where People Go To Check The Weather”</a>. This article utilized survey data collected from 928 people which asked questions on if they typically check the weather on a daily basis and if so, what source they used to check the weather. Additional follow-up questions were asked about which specific websites or apps they used and if they had a smartwatch if they would check the weather on that smartwatch.</p>
+</div>
+<div id="purpose" class="section level2">
+<h2>Purpose</h2>
+<p>The “weather check” dataset that was used for the <a href="https://fivethirtyeight.com/features/weather-forecast-news-app-habits/">“Where People Go To Check The Weather”</a> article, is available through the R package <a href="https://cran.r-project.org/web/packages/fivethirtyeight/index.html"><code>fivethirtyeight</code></a>. Using this dataset, this article summarizes the weather source preferences for the Mountain Region of the United States by gender.</p>
+<p>For our summary presented here, a subset of the original weather check dataset was extracted to only include responses with no missing data and only included respondents from the Mountain region of the US. The data subset used for our summary had 72 respondents.</p>
+</div>
+<div id="demographics-of-survey-respondents-in-a-merged-table" class="section level2">
+<h2>Demographics of Survey Respondents in a Merged Table</h2>
+<p>This section provides demographic summary tables for the 72 survey respondents.</p>
+<table class="table table-striped table-bordered" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+Demographics of Survey Respondents
+</caption>
+<thead>
+<tr>
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="2">
+<div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
+Ages
+</div>
+</th>
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="2">
+<div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
+Gender
+</div>
+</th>
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="2">
+<div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
+Income
+</div>
+</th>
+</tr>
+<tr>
+<th style="text-align:left;">
+Category
+</th>
+<th style="text-align:right;">
+%
+</th>
+<th style="text-align:left;">
+Category
+</th>
+<th style="text-align:right;">
+%
+</th>
+<th style="text-align:left;">
+Category
+</th>
+<th style="text-align:right;">
+%
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+18 - 29
+</td>
+<td style="text-align:right;">
+16.67
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:right;">
+38.89
+</td>
+<td style="text-align:left;">
+$0 to $9,999
+</td>
+<td style="text-align:right;">
+4.17
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:left;">
+$200,000 and up
+</td>
+<td style="text-align:right;">
+6.94
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:left;">
+Prefer not to answer
+</td>
+<td style="text-align:right;">
+18.06
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+30 - 44
+</td>
+<td style="text-align:right;">
+19.44
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:right;">
+61.11
+</td>
+<td style="text-align:left;">
+$10,000 to $24,999
+</td>
+<td style="text-align:right;">
+13.89
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+45 - 59
+</td>
+<td style="text-align:right;">
+30.56
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:left;">
+$25,000 to $49,999
+</td>
+<td style="text-align:right;">
+12.50
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+60+
+</td>
+<td style="text-align:right;">
+33.33
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:left;">
+$50,000 to $74,999
+</td>
+<td style="text-align:right;">
+18.06
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:left;">
+$75,000 to $99,999
+</td>
+<td style="text-align:right;">
+11.11
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:left;">
+$100,000 to $124,999
+</td>
+<td style="text-align:right;">
+6.94
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:left;">
+$125,000 to $149,999
+</td>
+<td style="text-align:right;">
+6.94
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:left;">
+$150,000 to $174,999
+</td>
+<td style="text-align:right;">
+1.39
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:left;">
+$175,000 to $199,999
+</td>
+<td style="text-align:right;">
+0.00
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="weather-source-preference-by-gender" class="section level2">
+<h2>Weather Source Preference by Gender</h2>
+<p>Finally, here is a breakdown of the 72 survey respondents for the Mountain region of the US on how they check their daily weather by gender.</p>
+<p><img src="data:image/png;base64,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" /><!-- --></p>
+</div>
+
+
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
