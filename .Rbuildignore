@@ -1,2 +1,4 @@
 ^WcTemplatePackage\.Rproj$
 ^\.Rproj\.user$
+^doc$
+^Meta$
